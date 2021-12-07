@@ -38,7 +38,7 @@ const allProducts = [
   }
 ]
 
-
+// If given an Object representing the data for one product, connects the object data with an HTML "view" and appends to the #products element
 const appendProduct = function(item) {
   document.querySelector(`#products`).innerHTML += `
     <article class="product">
