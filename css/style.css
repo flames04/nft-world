@@ -1,1 +1,4 @@
-/* Note there a few "reset" styles given in reset.css. Review those before you begin */
+.product {
+  border: 1px solid black;
+  background-color: #ddd;
+}
