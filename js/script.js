@@ -10,8 +10,7 @@ const allProducts = [
     desc: `Here is a shot of this product that might entice a user to click and add it to their cart.`,
     rating: 4.4,
     available: true,
-    yourFav: false,
-    songUrl: `audio_cb4f1212a9.mp3`
+    yourFav: false
   }, {
     prodId: 345,
     name: `Crypto Punk #345`,
