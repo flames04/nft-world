@@ -10,7 +10,8 @@ const allProducts = [
     desc: `Here is a shot of this product that might entice a user to click and add it to their cart.`,
     rating: 4.4,
     available: true,
-    yourFav: false
+    yourFav: false,
+    songUrl: `audio_cb4f1212a9.mp3`
   }, {
     prodId: 345,
     name: `Crypto Punk #345`,
@@ -35,8 +36,46 @@ const allProducts = [
     rating: 4.6,
     available: true,
     yourFav: true
+  }, {
+    prodId: 3345,
+    name: `Crypto Punk #3345`,
+    image: `4.png`,
+    price: {
+      was: 12,
+      is: 7.99
+    },
+    desc: `Here is a shot of this product that might entice a user to click and add it to their cart.`,
+    rating: 4.2,
+    available: true,
+    yourFav: false
+  }, {
+    prodId: 4221,
+    name: `Crypto Punk #4221`,
+    image: `5.png`,
+    price: {
+      was: 9,
+      is: 7.25
+    },
+    desc: `Here is a shot of this product that might entice a user to click and add it to their cart.`,
+    rating: 3.9,
+    available: true,
+    yourFav: false
+  }, {
+    prodId: 136,
+    name: `Crypto Punk #136`,
+    image: `6.png`,
+    price: {
+      was: false,
+      is: 6.2
+    },
+    desc: `Here is a shot of this product that might entice a user to click and add it to their cart.`,
+    rating: 3.9,
+    available: true,
+    yourFav: false
   }
 ]
+
+
 
 // If given an Object representing the data for one product, connects the object data with an HTML "view" and appends to the #products element
 const appendProduct = function(item) {
@@ -61,73 +100,16 @@ const appendProduct = function(item) {
   `
 }
 
-
+// For each product
 allProducts.forEach(appendProduct)
 
 
+/*
+- Ternary operator (inline condition)
+- map() vs forEach()
+- filter()
+- data-*=""
+*/
 
 
 
-
-/* 
-
-
-<!-- Product 3 -->
-
-  
-<!-- Product 4 -->
-<article class="product">
-  <header>
-    <img src="img/4.png" alt="Product Image">
-    <h3>Crypto Punk #3345</h3>
-    <data value="39"><span class="material-icons">diamond</span>ETH <del>12</del> <ins>7.99</ins></data>
-    <p>Here is a shot of this product that might entice a user to click and add it to their cart.</p>
-    <dl>
-      <dt>Rating</dt>
-      <dd>4.4 <span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span></dd>
-    </dl>
-    <a href="#">see more</a>
-  </header>
-  <footer>
-    <button type="button"><span class="material-icons">add_shopping_cart</span> Add to Cart</button>
-    <button type="button"><span class="material-icons">favorite</span></button>
-  </footer>
-</article>
-
-<!-- Product 5 -->
-<article class="product">
-  <header>
-    <img src="img/5.png" alt="Product Image">
-    <h3>Crypto Punk #4221</h3>
-    <data value="39"><span class="material-icons">diamond</span>ETH <del>9</del> <ins>7.25</ins></data>
-    <p>Here is a shot of this product that might entice a user to click and add it to their cart.</p>
-    <dl>
-      <dt>Rating</dt>
-      <dd>4.4 <span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span></dd>
-    </dl>
-    <a href="#">see more</a>
-  </header>
-  <footer>
-    <button type="button"><span class="material-icons">add_shopping_cart</span> Add to Cart</button>
-    <button type="button"><span class="material-icons">favorite</span></button>
-  </footer>
-</article>
-
-<!-- Product 6 -->
-<article class="product">
-  <header>
-    <img src="img/6.png" alt="Product Image">
-    <h3>Crypto Punk #136</h3>
-    <data value="39"><span class="material-icons">diamond</span>ETH 6.2</data>
-    <p>Here is a shot of this product that might entice a user to click and add it to their cart.</p>
-    <dl>
-      <dt>Rating</dt>
-      <dd>4.4 <span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span></dd>
-    </dl>
-    <a href="#">see more</a>
-  </header>
-  <footer>
-    <button type="button"><span class="material-icons">add_shopping_cart</span> Add to Cart</button>
-    <button type="button"><span class="material-icons">favorite</span></button>
-  </footer>
-</article> */
