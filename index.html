@@ -50,38 +50,39 @@
       <!-- Filtering product form -->
       <form class="filters">
         <h2>Filters</h2>
-
-        <fieldset>
-          <legend hidden>Display Order</legend>
-          <label for="searchName">Name</label>
-          <input type="search" name="searchName" id="searchName">
-        </fieldset>
-        <fieldset>
-          <legend hidden>Display Order</legend>
-          <label for="searchSort">Sort</label>
-          <select name="searchSort" id="searchSort">
-            <option value="price-high">Price, highest to lowest</option>
-            <option value="price-low">Price, lowest to highest</option>
-            <option value="newest">Newest releases</option>
-          </select>
-        </fieldset>
-        <fieldset>
-          <legend hidden>Layout View</legend>
-          <ul class="filter-list">
-            <li>
-              <input type="radio" name="rating" value="4" id="aboveFour">
-              <label for="aboveFour">
-                <span class="material-icons">view_compact_alt</span>
-              </label>
-            </li>
-            <li>
-              <input type="radio" name="rating" value="3" id="aboveThree">
-              <label for="aboveThree">
-                <span class="material-icons">view_agenda</span>
-              </label>
-            </li>
-          </ul>
-        </fieldset>
+        <div class="filter-fields">
+          <fieldset>
+            <legend hidden>Display Order</legend>
+            <label for="searchName">Name</label>
+            <input type="search" name="searchName" id="searchName">
+          </fieldset>
+          <fieldset>
+            <legend hidden>Display Order</legend>
+            <label for="searchSort">Sort</label>
+            <select name="searchSort" id="searchSort">
+              <option value="price-high">Price, highest to lowest</option>
+              <option value="price-low">Price, lowest to highest</option>
+              <option value="newest">Newest releases</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <legend hidden>Layout View</legend>
+            <ul class="filter-list">
+              <li>
+                <input type="radio" name="rating" value="4" id="aboveFour">
+                <label for="aboveFour">
+                  <span class="material-icons">view_compact_alt</span>
+                </label>
+              </li>
+              <li>
+                <input type="radio" name="rating" value="3" id="aboveThree">
+                <label for="aboveThree">
+                  <span class="material-icons">view_agenda</span>
+                </label>
+              </li>
+            </ul>
+          </fieldset>
+        </div>
       </form>
 
       <section class="results">

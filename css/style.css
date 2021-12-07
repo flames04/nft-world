@@ -1,6 +1,17 @@
+.page-header, .page-footer {
+  display: flow-root;
+  background-color: #333;
+  color: #fff;
+}
+
+.filter-fields {
+  display: flex;
+  align-items: center;
+}
+
 .products {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   gap: 1rem;
 }
 
