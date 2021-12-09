@@ -21,7 +21,7 @@ const allProducts = [
     },
     desc: `Here is a shot of this product that might entice a user to click and add it to their cart.`,
     rating: 4.2,
-    available: true,
+    available: false,
     yourFav: false
   }, {
     prodId: 2345,
@@ -78,12 +78,28 @@ const allProducts = [
 
 // If given an Object representing the data for one product, connects the object data with an HTML "view" and appends to the #products element
 const appendProduct = function(item) {
+
+  // let price = ``
+
+  // if (item.price.was) { // If there is a "was" price that is not falsy
+  //   price = `<del>${item.price.was}</del> <ins>${item.price.is}</ins>`
+  // } else {
+  //   price = `<span>${item.price.is}</span>`
+  // }
+  
+
+  // return = _______ ? _______ : ________
+
+
   document.querySelector(`#products`).innerHTML += `
-    <article class="product">
+    <article class="product ${ (!item.available) ? `unavailable` : `` }">
       <header>
         <img src="img/${item.image}" alt="${item.name}">
         <h3>${item.name}</h3>
-        <data value="${item.price.is}"><span class="material-icons">diamond</span>ETH <del>${item.price.was}</del> <ins>${item.price.is}</ins></data>
+        <data value="${item.price.is}"><span class="material-icons">diamond</span>ETH ${
+          (item.price.was)
+            ? `<del>${item.price.was}</del> <ins>${item.price.is}</ins>`
+            : `<span>${item.price.is}</span>`}</data>
         <p>${item.desc}</p>
         <dl>
           <dt>Rating</dt>
@@ -99,15 +115,19 @@ const appendProduct = function(item) {
   `
 }
 
+const maxPrice = 8
+
 // For each product
-allProducts.forEach(appendProduct)
+allProducts.filter(item => item.price.is < maxPrice).forEach(appendProduct)
 
 
 /*
-- Ternary operator (inline condition)
-- map() vs forEach()
+- Ternary operator (inline condition), falsy, shorter condition statements (omitting {}) 
+- arrow functions
 - filter()
+- chaining
 - data-*=""
+- map() vs forEach()
 */
 
 

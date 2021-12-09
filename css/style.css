@@ -15,7 +15,12 @@
   gap: 1rem;
 }
 
+
+
 .product {
   border: 1px solid black;
   background-color: #ddd;
+}
+.product.unavailable {
+  opacity: 0.5;
 }

@@ -66,17 +66,22 @@
             </select>
           </fieldset>
           <fieldset>
+            <legend hidden>Maximum price</legend>
+            <label for="maxPrice">Max Price</label>
+            <input type="number" value="8" min="0" max="1000" step=".1" id="maxPrice">
+          </fieldset>
+          <fieldset>
             <legend hidden>Layout View</legend>
             <ul class="filter-list">
               <li>
-                <input type="radio" name="rating" value="4" id="aboveFour">
-                <label for="aboveFour">
+                <input type="radio" name="layout" value="cols" id="layoutCols" checked>
+                <label for="layoutCols">
                   <span class="material-icons">view_compact_alt</span>
                 </label>
               </li>
               <li>
-                <input type="radio" name="rating" value="3" id="aboveThree">
-                <label for="aboveThree">
+                <input type="radio" name="layout" value="rows" id="layoutRows">
+                <label for="layoutRows">
                   <span class="material-icons">view_agenda</span>
                 </label>
               </li>
