@@ -1,7 +1,7 @@
 const allProducts = [
   {
     prodId: 1234,
-    name: `Crypto Punk #1234`,
+    name: `#1234 (Sally)`,
     image: `1.png`,
     price: {
       was: 11.2,
@@ -13,7 +13,7 @@ const allProducts = [
     yourFav: false
   }, {
     prodId: 345,
-    name: `Crypto Punk #345`,
+    name: `#345 (Sandy)`,
     image: `2.png`,
     price: {
       was: false,
@@ -25,7 +25,7 @@ const allProducts = [
     yourFav: false
   }, {
     prodId: 2345,
-    name: `Crypto Punk #2345`,
+    name: `#2345 (Peter)`,
     image: `3.png`,
     price: {
       was: false,
@@ -37,7 +37,7 @@ const allProducts = [
     yourFav: true
   }, {
     prodId: 3345,
-    name: `Crypto Punk #3345`,
+    name: `#3345 (Allen)`,
     image: `4.png`,
     price: {
       was: 12,
@@ -49,7 +49,7 @@ const allProducts = [
     yourFav: false
   }, {
     prodId: 4221,
-    name: `Crypto Punk #4221`,
+    name: `#4221 (Grace)`,
     image: `5.png`,
     price: {
       was: 9,
@@ -61,7 +61,7 @@ const allProducts = [
     yourFav: false
   }, {
     prodId: 136,
-    name: `Crypto Punk #136`,
+    name: `#136 (Ada)`,
     image: `6.png`,
     price: {
       was: false,
@@ -115,19 +115,40 @@ const appendProduct = function(item) {
   `
 }
 
-const maxPrice = 8
+
+// A filter
+const maxPrice = 18
+const nameSearch = `d`
 
 // For each product
-allProducts.filter(item => item.price.is < maxPrice).forEach(appendProduct)
+allProducts
+  .filter(item => item.price.is < maxPrice)
+  .filter(item => item.name.toUpperCase().includes(nameSearch.toUpperCase()))
+  .forEach(appendProduct)
 
 
 /*
-- Ternary operator (inline condition), falsy, shorter condition statements (omitting {}) 
-- arrow functions
+// This week:
+- "falsy"
+- Omitting {} from conditions
+- Ternary operator (inline binary condition w/ return value)
 - filter()
+- arrow functions
 - chaining
-- data-*=""
+- Strings
+
+// Next:
+- Modules
+- Form submit and values
 - map() vs forEach()
+- data-*=""
+- Event delegation
+- Media events
+
+// Then:
+- fetch
+- async/await
+- JSON
 */
 
 
