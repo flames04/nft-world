@@ -130,8 +130,8 @@ allProducts
 /*
 // This week:
 - "falsy"
-- Omitting {} from conditions
 - Ternary operator (inline binary condition w/ return value)
+  - and omitting {} from conditions
 - filter()
 - arrow functions
 - chaining
