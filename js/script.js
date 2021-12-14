@@ -108,39 +108,58 @@ const perPage = 6
 const onPage = 1
 const startAt = (onPage - 1) * perPage
 
+// The form
+const filterForm = document.querySelector(`#productFilter`)
 
-document.querySelector(`#productFilter`).addEventListener(`submit`, function(event) {
-  // Stop the form from redirecting/refreshing
-  event.preventDefault()
-
+// FILTER THE PRODUCTS
+const filterAndPrintProducts = function() {
   // Check the form's values, do some stuff...
-  const nameSearch = event.target.querySelector(`#searchName`).value
-  const maxPrice = Number(event.target.querySelector(`#maxPrice`).value)
+  const nameSearch = filterForm.querySelector(`#searchName`).value || ``
+  const maxPrice = Number(filterForm.querySelector(`#maxPrice`).value) || -1
 
   // Clear out the existing results
   document.querySelector(`#products`).innerHTML = ``
 
   // For each product, filter, slice and print
   allProducts
-    .filter(item => item.price.is <= maxPrice)
+    .filter(item => item.price.is <= maxPrice || maxPrice === -1)
     .filter(item => item.name.toUpperCase().includes(nameSearch.toUpperCase()))
     .slice(startAt, startAt + perPage)
     .forEach(appendProduct)
+}
 
-  console.log(typeof searchNameValue, typeof maxPriceValue)
+
+// When the <form> is submit
+filterForm.addEventListener(`submit`, function(event) {
+  // Stop the form from redirecting/refreshing
+  event.preventDefault()
+
+  // Collect the fields, filter, and output
+  filterAndPrintProducts()
+})
+
+// When there's an "input" to the "Name" field
+filterForm.querySelector(`#searchName`).addEventListener(`input`, function(event) {
+  console.log(`input`, event.target.value)
+  filterAndPrintProducts()
+})
+
+// When there's a "change" to the "Max Price" field
+filterForm.querySelector(`#maxPrice`).addEventListener(`change`, function(event) {
+  console.log(`change`, event.target.value)
+  filterAndPrintProducts()
+})
+
+// When the document has loaded
+window.addEventListener(`load`, function(event) {
+  filterAndPrintProducts()
 })
 
 
 
-
-
-
-
-
-
-
-
-
+// Another way to trigger the filter...
+// Force ("dispatch") an event to occur synthetically
+// document.querySelector(`#productFilter`).dispatchEvent(new Event('submit'))
 
 
 
