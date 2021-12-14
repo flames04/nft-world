@@ -115,7 +115,7 @@ document.querySelector(`#productFilter`).addEventListener(`submit`, function(eve
 
   // Check the form's values, do some stuff...
   const nameSearch = event.target.querySelector(`#searchName`).value
-  const maxPrice = event.target.querySelector(`#maxPrice`).value
+  const maxPrice = Number(event.target.querySelector(`#maxPrice`).value)
 
   // Clear out the existing results
   document.querySelector(`#products`).innerHTML = ``
