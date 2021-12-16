@@ -78,21 +78,8 @@ const allProducts = [
 
 // If given an Object representing the data for one product, connects the object data with an HTML "view" and appends to the #products element
 const appendProduct = function(item) {
-
-  // let price = ``
-
-  // if (item.price.was) { // If there is a "was" price that is not falsy
-  //   price = `<del>${item.price.was}</del> <ins>${item.price.is}</ins>`
-  // } else {
-  //   price = `<span>${item.price.is}</span>`
-  // }
-  
-
-  // return = _______ ? _______ : ________
-
-
   document.querySelector(`#products`).innerHTML += `
-    <article class="product ${ (!item.available) ? `unavailable` : `` }">
+    <article class="product ${ (!item.available) && `unavailable` }">
       <header>
         <img src="img/${item.image}" alt="${item.name}">
         <h3>${item.name}</h3>
@@ -116,15 +103,67 @@ const appendProduct = function(item) {
 }
 
 
-// A filter
-const maxPrice = 18
-const nameSearch = `d`
+// Pagination (Extra, see "slice" below)
+const perPage = 6
+const onPage = 1
+const startAt = (onPage - 1) * perPage
 
-// For each product
-allProducts
-  .filter(item => item.price.is < maxPrice)
-  .filter(item => item.name.toUpperCase().includes(nameSearch.toUpperCase()))
-  .forEach(appendProduct)
+// The form
+const filterForm = document.querySelector(`#productFilter`)
+
+// FILTER THE PRODUCTS
+const filterAndPrintProducts = function() {
+  // Check the form's values, do some stuff...
+  const nameSearch = filterForm.querySelector(`#searchName`).value || ``
+  const maxPrice = Number(filterForm.querySelector(`#maxPrice`).value) || -1
+
+  // Clear out the existing results
+  document.querySelector(`#products`).innerHTML = ``
+
+  // For each product, filter, slice and print
+  allProducts
+    .filter(item => item.price.is <= maxPrice || maxPrice === -1)
+    .filter(item => item.name.toUpperCase().includes(nameSearch.toUpperCase()))
+    .slice(startAt, startAt + perPage)
+    .forEach(appendProduct)
+}
+
+
+// When the <form> is submit
+filterForm.addEventListener(`submit`, function(event) {
+  // Stop the form from redirecting/refreshing
+  event.preventDefault()
+
+  // Collect the fields, filter, and output
+  filterAndPrintProducts()
+})
+
+// When there's an "input" to the "Name" field
+filterForm.querySelector(`#searchName`).addEventListener(`input`, function(event) {
+  console.log(`input`, event.target.value)
+  filterAndPrintProducts()
+})
+
+// When there's a "change" to the "Max Price" field
+filterForm.querySelector(`#maxPrice`).addEventListener(`change`, function(event) {
+  console.log(`change`, event.target.value)
+  filterAndPrintProducts()
+})
+
+// When the document has loaded
+window.addEventListener(`load`, function(event) {
+  filterAndPrintProducts()
+})
+
+
+
+// Another way to trigger the filter...
+// Force ("dispatch") an event to occur synthetically
+// document.querySelector(`#productFilter`).dispatchEvent(new Event('submit'))
+
+
+
+
 
 
 /*
@@ -144,6 +183,7 @@ allProducts
 - data-*=""
 - Event delegation
 - Media events
+- Sorting
 
 // Then:
 - fetch
